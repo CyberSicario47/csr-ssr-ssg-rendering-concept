@@ -13,8 +13,23 @@ const getPokemon =async (key:number,q:string) => {
 
 const Home: NextPage = () => {
 
+  // const [query, setQuery] = useState("")
+  // const { data } = useQuery(["q",query],async () => {
+  //   const { data } = await axios.get(
+  //     `api/search?q=${escape(query)}`
+  //   );
+  //   return data;
+  // })
+
   const [query, setQuery] = useState("")
   const { data } = useQuery(["q",query],getPokemon);
+
+  // const { newData } = useQuery(["q",query],async () => {
+  //   const { data } = await axios.get(
+  //     `api/search?q=${escape(query)}`
+  //   );
+  //   return data;
+  // })
 
     // return (<div>{data && <div>{data.id}</div>}</div>)
   return (
@@ -35,6 +50,7 @@ const Home: NextPage = () => {
 
         </FormControl>
       </Container>
+      <div>{JSON.stringify(data)}</div>
       
     </div>
   )
